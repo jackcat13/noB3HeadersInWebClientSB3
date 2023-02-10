@@ -6,13 +6,10 @@ import com.reproducer.propagationWebClient.RemoteJwtDecoderHttpTest.Companion.de
 import com.reproducer.propagationWebClient.TestWebApplication.User
 import com.reproducer.propagationWebClient.Token.loadResource
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.actuate.observability.AutoConfigureObservability
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.HttpHeaders
@@ -48,7 +45,6 @@ internal fun WebTestClient.withWebSession(): WebTestClient {
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@AutoConfigureObservability
 @AutoConfigureWebTestClient
 internal class TracingRemoteTest(@Autowired webTestClient: WebTestClient) : RemoteJwtDecoderHttpTest(webTestClient) {
 
